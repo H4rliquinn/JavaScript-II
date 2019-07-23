@@ -56,4 +56,6 @@ const counterFactory = () => {
   addsub.decrement();
   addsub.decrement();
 
+//IFFE
+((phrase)=>console.log("!!!"+phrase+"!!!!"))("But why?");
 
