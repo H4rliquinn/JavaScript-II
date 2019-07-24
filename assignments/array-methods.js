@@ -88,8 +88,38 @@ bigFish=runners.filter((item)=>item.donation>avgDonation).forEach(({first_name,l
 
 // Problem 2
 //Shirt order
-let shirtOrder=[];
+let returnOrder=[{size:"XS",quantity:0},{size:"S",quantity:0},{size:"M",quantity:0},{size:"L",quantity:0},{size:"XL",quantity:0},{size:"2XL",quantity:0},{size:"3XL",quantity:0}];
 shirtOrder=runners.forEach(function(item){
-    let returnOrder=[{size:"XS",quantity:0},{size:"S",quantity:0},{size:"M",quantity:0},{size:"L",quantity:0},{size:"XL",quantity:0}{size:"S",quantity:0}{size:"S",quantity:0}];
-    switch()
-});// Problem 3
+
+    switch(item.shirt_size){
+        case "XS" : returnOrder.forEach(order=>{
+            if (order.size=="XS")order.quantity++;
+        });
+        break;
+        case "S" : returnOrder.forEach(order => {
+            if (order.size=="S")order.quantity++;
+        });
+        break;
+        case "M": returnOrder.forEach(order=>{
+            if (order.size=="M")order.quantity++;
+        });
+        break;        
+        case "L": returnOrder.forEach(order=>{
+            if (order.size=="L")order.quantity++;
+        });
+        break;    
+        case "XL": returnOrder.forEach(order=>{
+            if (order.size=="XL")order.quantity++;
+        });
+        break;
+        case "2XL": returnOrder.forEach(order=>{
+            if (order.size=="2XL")order.quantity++;
+        });
+        break;
+        case "3XL": returnOrder.forEach(order=>{
+            if (order.size=="3XL")order.quantity++;
+        });
+    }
+});
+console.table(returnOrder);
+// Problem 3
