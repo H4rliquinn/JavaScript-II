@@ -56,28 +56,70 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs.  Combine both the first and last names into a new array called fullName. 
 let fullName = [];
+runners.forEach((item)=>fullName.push(`${item.first_name} ${item.last_name}`));
 console.log(fullName);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result
 let allCaps = [];
+runners.map((item)=>allCaps.push(item.first_name.toUpperCase()));
 console.log(allCaps); 
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
 let largeShirts = [];
+largeShirts=runners.filter((item)=>item.shirt_size=="L");
 console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
 let ticketPriceTotal = [];
+ticketPriceTotal=runners.reduce((acc,item)=>acc+=item.donation,0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+//Thank You email for highest donators
+let bigFish=[];
+let avgDonation=ticketPriceTotal/50;
+bigFish=runners.filter((item)=>item.donation>avgDonation).forEach(({first_name,last_name,email,donation})=>console.log(`${first_name} ${last_name} at ${email} donated $${donation}`));
 
 // Problem 2
+//Shirt order
+let returnOrder=[{size:"XS",quantity:0},{size:"S",quantity:0},{size:"M",quantity:0},{size:"L",quantity:0},{size:"XL",quantity:0},{size:"2XL",quantity:0},{size:"3XL",quantity:0}];
+shirtOrder=runners.forEach(function(item){
 
+    switch(item.shirt_size){
+        case "XS" : returnOrder.forEach(order=>{
+            if (order.size=="XS")order.quantity++;
+        });
+        break;
+        case "S" : returnOrder.forEach(order => {
+            if (order.size=="S")order.quantity++;
+        });
+        break;
+        case "M": returnOrder.forEach(order=>{
+            if (order.size=="M")order.quantity++;
+        });
+        break;        
+        case "L": returnOrder.forEach(order=>{
+            if (order.size=="L")order.quantity++;
+        });
+        break;    
+        case "XL": returnOrder.forEach(order=>{
+            if (order.size=="XL")order.quantity++;
+        });
+        break;
+        case "2XL": returnOrder.forEach(order=>{
+            if (order.size=="2XL")order.quantity++;
+        });
+        break;
+        case "3XL": returnOrder.forEach(order=>{
+            if (order.size=="3XL")order.quantity++;
+        });
+    }
+});
+console.table(returnOrder);
 // Problem 3
