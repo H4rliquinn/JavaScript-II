@@ -123,3 +123,7 @@ shirtOrder=runners.forEach(function(item){
 });
 console.table(returnOrder);
 // Problem 3
+//TL is demanding a list of email addresses in embedded names, that rat.
+
+let emailFormat = runners.map((item)=>`"${item.first_name} ${item.last_name}" <${item.email}>`);
+console.log(emailFormat);
